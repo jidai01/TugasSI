@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Pemesanan Hotel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Laporan Pemesanan Hotel</h1>
+
+        <!-- Button Group for Navigation -->
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <a href="{% url 'laporan_pelanggan' %}" class="btn btn-primary btn-lg" role="button">
+                Laporan Pelanggan dengan Pemesanan Terbanyak
+            </a>
+            <a href="{% url 'laporan_kamar' %}" class="btn btn-success btn-lg" role="button">
+                Laporan Tipe Kamar yang Paling Banyak Dipesan
+            </a>
+            <a href="{% url 'laporan_pekerjaan' %}" class="btn btn-info btn-lg" role="button">
+                Laporan Pekerjaan dengan Pemesanan Terbanyak
+            </a>
+            <a href="{% url 'laporan_tanggal' %}" class="btn btn-warning btn-lg" role="button">
+                Laporan Tanggal Pemesanan Terbanyak
+            </a>
+            <!-- Tombol Baru untuk Laporan Pemesanan -->
+            <a href="{% url 'laporan_pemesanan' %}" class="btn btn-danger btn-lg" role="button">
+                Laporan Semua Pemesanan
+            </a>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (bundle includes Popper.js) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!-- laporan_pemesanan.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Pemesanan</title>
+</head>
+<body>
+    <h1>Laporan Pemesanan Hotel</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID Pesan</th>
+                <th>ID Pelanggan</th>
+                <th>Nama Pelanggan</th>
+                <th>Jumlah Kamar</th>
+                <th>Detail Pemesanan</th>
+                <th>Status Pesan</th>
+                <th>Tanggal Check-In</th>
+                <th>Tanggal Check-Out</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pesan in pesan_list %}
+                <tr>
+                    <td>{{ pesan.idPesan }}</td>
+                    <td>{{ pesan.idPel.idPel }}</td>
+                    <td>{{ pesan.idPel.namaDpn }} {{ pesan.idPel.namaBlkng }}</td>
+                    <td>{{ pesan.jmlhKamar }}</td>
+                    <td>
+                        <ul>
+                            {% for detail in pesan.detailpesan_set.all %}
+                                <li>
+                                    Kamar: {{ detail.idKamar.tipe }} | Check-In: {{ detail.tglCheckIn }} | Check-Out: {{ detail.tglCheckOut }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td>
+                        {% if pesan.detailpesan_set.first %}
+                            {{ pesan.detailpesan_set.first.statusPesan }}
+                        {% else %}
+                            Tidak Tersedia
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% for detail in pesan.detailpesan_set.all %}
+                            {{ detail.tglCheckIn }}<br>
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for detail in pesan.detailpesan_set.all %}
+                            {{ detail.tglCheckOut }}<br>
+                        {% endfor %}
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="8">Tidak ada data pemesanan</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

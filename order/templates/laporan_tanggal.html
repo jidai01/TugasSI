@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Pemesanan Berdasarkan Tanggal</title>
+</head>
+<body>
+    <h1>Laporan Pemesanan Berdasarkan Tanggal</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Tanggal Check-In</th>
+                <th>Jumlah Pemesanan</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in pemesanan_per_tanggal %}
+            <tr>
+                <td>{{ data.tglCheckIn }}</td>
+                <td>{{ data.jumlah_pemesanan }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

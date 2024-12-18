@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Laporan Pelanggan Berdasarkan Pekerjaan</title>
+</head>
+<body>
+    <h1>Laporan Pelanggan Berdasarkan Pekerjaan</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID Pelanggan</th>
+                <th>Nama</th>
+                <th>Pekerjaan</th>
+                <th>Jumlah Pesanan</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pelanggan in laporan %}
+            <tr>
+                <td>{{ pelanggan.id_pelanggan }}</td>
+                <td>{{ pelanggan.nama }}</td>
+                <td>{{ pelanggan.pekerjaan }}</td>
+                <td>{{ pelanggan.jumlah_pesanan }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Laporan Kamar Terbanyak Dipesan</title>
+</head>
+<body>
+    <h1>Laporan Kamar Terbanyak Dipesan</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID Kamar</th>
+                <th>Tipe Kamar</th>
+                <th>Kapasitas</th>
+                <th>Harga</th>
+                <th>Jumlah Dipesan</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for kamar in laporan %}
+            <tr>
+                <td>{{ kamar.id_kamar }}</td>
+                <td>{{ kamar.tipe }}</td>
+                <td>{{ kamar.kapasitas }}</td>
+                <td>Rp. {{ kamar.harga }}</td>
+                <td>{{ kamar.jumlah_dipesan }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

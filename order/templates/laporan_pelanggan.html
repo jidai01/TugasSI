@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Pelanggan</title>
+</head>
+<body>
+    <h1>Daftar Pelanggan Berdasarkan Jumlah Pemesanan</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID Pelanggan</th>
+                <th>Nama Pelanggan</th>
+                <th>Jumlah Kamar yang Dipesan</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in pelanggan %}
+                <tr>
+                    <td>{{ p.idPel }}</td>
+                    <td>{{ p.namaDpn }} {{ p.namaBlkng }}</td>
+                    <td>{{ p.total_kamar }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
