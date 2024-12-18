@@ -9,8 +9,8 @@ class Pelanggan(models.Model):
         ('P', 'Perempuan')
     ]
     idPel = models.CharField(max_length=10, verbose_name='ID Pelanggan', null=False, unique=True, primary_key=True)
-    namaDpn = models.CharField(max_length=50, verbose_name='Nama Depan', null=False)
-    namaBlkng = models.CharField(max_length=50, verbose_name='Nama Belakang', null=False)
+    namaDpn = models.CharField(max_length=100, verbose_name='Nama Depan', null=False)
+    namaBlkng = models.CharField(max_length=100, verbose_name='Nama Belakang', null=False)
     jkPel = models.CharField(max_length=1, choices=GENDER_CHOICES, verbose_name='Jenis Kelamin')
     alamatPel = models.TextField(max_length=300, verbose_name='Alamat')
     pekerjaan = models.CharField(max_length=50, verbose_name='Pekerjaan')
@@ -78,6 +78,11 @@ class Pesan(models.Model):
     class Meta:
         verbose_name_plural = 'Data Pesan Hotel'
         ordering = ['idPesan']
+
+    def clean(self):
+        super().clean()
+        if self.jmlhKamar <= 0:
+            raise ValidationError({'jmlhKamar': 'Jumlah kamar minimal 1.'})
 
     def __str__(self):
         return f'{self.idPesan} | {self.idPel} > {self.jmlhKamar}'

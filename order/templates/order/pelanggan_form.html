@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pelanggan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Formulir Pelanggan</h2>
+
+    <!-- Form untuk menambah pelanggan -->
+    <form method="post">
+        {% csrf_token %}
+        
+        <!-- Menampilkan form pelanggan dengan masing-masing field -->
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-primary">Simpan</button>
+        <a href="{% url 'pelanggan_list' %}" class="btn btn-secondary">Kembali</a>
+    </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konfirmasi Penghapusan Pelanggan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Konfirmasi Penghapusan Pelanggan</h2>
+
+    <!-- Menampilkan detail pelanggan yang akan dihapus -->
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Peringatan!</h4>
+        <p>Apakah Anda yakin ingin menghapus pelanggan berikut?</p>
+        <ul>
+            <li><strong>ID:</strong> {{ pelanggan.idPel }}</li>
+            <li><strong>Nama:</strong> {{ pelanggan.namaDpn }}{{pelanggan.namaBlkng}}</li>
+        </ul>
+    </div>
+
+    <!-- Form untuk konfirmasi hapus -->
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Hapus</button>
+        <a href="{% url 'pelanggan_list' %}" class="btn btn-secondary">Batal</a>
+    </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
