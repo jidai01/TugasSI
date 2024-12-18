@@ -7,3 +7,6 @@ URLS yang bisa diakses:
   /order/laporan/pekerjaan/
   /order/laporan/tanggal/
   /order/laporan/pemesanan/
+Untuk akses /admin:
+  Username: admin
+  Password: admin1234
